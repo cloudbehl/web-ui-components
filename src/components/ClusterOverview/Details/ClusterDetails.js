@@ -30,7 +30,7 @@ export const ClusterDetails = ({ infrastructure, openshiftVersionResponse, Loadi
     },
   };
 
-  return <Details items={items} LoadingComponent={LoadingComponent} />;
+  return <Details items={items} heading="Details" LoadingComponent={LoadingComponent} />;
 };
 
 ClusterDetails.defaultProps = {
