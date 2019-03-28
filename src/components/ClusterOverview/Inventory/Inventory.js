@@ -66,7 +66,7 @@ export const Inventory = ({ inventory, loaded, heading }) => (
 
 Inventory.defaultProps = {
   loaded: false,
-  heading: "Inventory",
+  heading: 'Inventory',
 };
 
 Inventory.propTypes = {

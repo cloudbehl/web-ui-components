@@ -11,10 +11,10 @@ import {
 } from '../../Dashboard/DashboardCard';
 import { ClusterOverviewContextGenericConsumer } from '../ClusterOverviewContext';
 
-export const Events = ({ Component }) => (
+export const Events = ({ Component, heading }) => (
   <DashboardCard>
     <DashboardCardHeader>
-      <DashboardCardTitle>Cluster Events</DashboardCardTitle>
+      <DashboardCardTitle>{heading}</DashboardCardTitle>
       <DashboardCardTitleHelp>help for events</DashboardCardTitleHelp>
     </DashboardCardHeader>
     <DashboardCardBody id="events-body" className="kubevirt-events__body">
@@ -24,10 +24,12 @@ export const Events = ({ Component }) => (
 );
 Events.defaultProps = {
   Component: React.Fragment,
+  heading: 'Events',
 };
 
 Events.propTypes = {
   Component: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+  heading: PropTypes.string,
 };
 
 const EventsConnected = () => <ClusterOverviewContextGenericConsumer Component={Events} dataPath="eventsData" />;
