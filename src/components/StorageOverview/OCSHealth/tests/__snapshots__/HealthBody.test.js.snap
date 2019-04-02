@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Health /> renders correctly 1`] = `
+<div
+  class="card-pf kubevirt-dashboard__card"
+>
+  <div
+    class="card-pf-heading kubevirt-dashboard__card-heading"
+  >
+    <h2
+      class="card-pf-title"
+    >
+      Cluster Health
+    </h2>
+  </div>
+  <div
+    class="card-pf-body kubevirt-health__body"
+  >
+    <div
+      class="kubevirt-health__icon--error"
+    >
+      <span
+        aria-hidden="true"
+        class="fa fa-exclamation-circle"
+      />
+    </div>
+    Error message
+  </div>
+</div>
+`;

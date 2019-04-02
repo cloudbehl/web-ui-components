@@ -1,0 +1,34 @@
+.kubevirt-health__body {
+  text-align: center;
+  max-height: 130px;
+}
+
+.kubevirt-health__icon--error {
+  font-size: 1.333em;
+  color: red;
+  line-height: 1.333em;
+}
+
+.kubevirt-health__icon--ok {
+  font-size: 1.333em;
+  color: yellowgreen;
+  line-height: 1.333em;
+}
+
+.kubevirt-health__icon--warning {
+  font-size: 1.333em;
+  color: goldenrod;
+  line-height: 1.333em;
+}
+
+.kubevirt-ocshealth__row-status-item-text {
+  margin-left: 1em;
+  font-size: 1.333em;
+}
+
+.kubevirt-ocshealth__row-status-item {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5em;
+  flex-shrink: 0;
+}
