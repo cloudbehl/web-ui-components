@@ -6,7 +6,6 @@ export const dataResiliencyData = {
     message: 'Your data is resilient',
   },
   loaded: true,
-  buildDone: false,
   progressPercentage: 80,
 };
 

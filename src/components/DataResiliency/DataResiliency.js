@@ -13,18 +13,16 @@ import HealthBody from '../ClusterOverview/Health/HealthBody';
 import { ClusterOverviewContext } from '../ClusterOverview/ClusterOverviewContext';
 import { InlineLoading } from '../Loading';
 
-
-export const DataResiliency = ({ data, loaded, buildDone, progressPercentage }) => (
+export const DataResiliency = ({ data, loaded, progressPercentage }) => (
   <DashboardCard>
     <DashboardCardHeader>
       <DashboardCardTitle>Data Resiliency</DashboardCardTitle>
     </DashboardCardHeader>
     <DashboardCardBody isLoading={!loaded} LoadingComponent={InlineLoading}>
-      {buildDone? <HealthBody data={data} /> : <UtilizationBar now={progressPercentage}  description="Rebuilding in Progress" descriptionPlacementTop = {true}  label = {`${progressPercentage}%`}/>}
+      {(progressPercentage === 100)? <HealthBody data={data} /> : <UtilizationBar now={progressPercentage}  description="Rebuilding in Progress" descriptionPlacementTop = {true}  label = {`${progressPercentage}%`}/>}
     </DashboardCardBody>
   </DashboardCard>
 );
-
 
 DataResiliency.defaultProps = {
   loaded: true,
@@ -33,7 +31,6 @@ DataResiliency.defaultProps = {
 DataResiliency.propTypes = {
   data: PropTypes.object.isRequired,
   loaded: PropTypes.bool,
-  buildDone: PropTypes.bool,
   progressPercentage: PropTypes.number
 };
 
