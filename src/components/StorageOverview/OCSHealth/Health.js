@@ -18,7 +18,7 @@ export const OCSHealth = ({ data, loaded }) => (
       <DashboardCardTitle>Health</DashboardCardTitle>
     </DashboardCardHeader>
     <DashboardCardBody
-      className="kubevirt-ocshealth__row-status-item"
+      className="storage-ocshealth__row-status-item"
       isLoading={!loaded}
       LoadingComponent={InlineLoading}
     >

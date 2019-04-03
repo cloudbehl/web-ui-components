@@ -3,23 +3,32 @@ import PropTypes from 'prop-types';
 
 import { UtilizationBar } from 'patternfly-react';
 
-import {
-  DashboardCard,
-  DashboardCardBody,
-  DashboardCardHeader,
-  DashboardCardTitle,
-} from '../Dashboard/DashboardCard';
+import { DashboardCard, DashboardCardBody, DashboardCardHeader, DashboardCardTitle } from '../Dashboard/DashboardCard';
 import HealthBody from '../ClusterOverview/Health/HealthBody';
-import { ClusterOverviewContext } from '../ClusterOverview/ClusterOverviewContext';
+import { ClusterOverviewContextGenericConsumer } from '../ClusterOverview/ClusterOverviewContext';
 import { InlineLoading } from '../Loading';
 
-export const DataResiliency = ({ data, loaded, progressPercentage }) => (
+const healthyData = {
+  healthy: true,
+  message: 'Your Data is Resilient',
+};
+
+export const DataResiliency = ({ data, loaded }) => (
   <DashboardCard>
     <DashboardCardHeader>
       <DashboardCardTitle>Data Resiliency</DashboardCardTitle>
     </DashboardCardHeader>
     <DashboardCardBody isLoading={!loaded} LoadingComponent={InlineLoading}>
-      {(progressPercentage === 100)? <HealthBody data={data} /> : <UtilizationBar now={progressPercentage}  description="Rebuilding in Progress" descriptionPlacementTop = {true}  label = {`${progressPercentage}%`}/>}
+      {data.progressPercentage === '100' ? (
+        <HealthBody data={healthyData} />
+      ) : (
+        <UtilizationBar
+          now={data.progressPercentage}
+          description="Rebuilding in Progress"
+          descriptionPlacementTop={true}
+          label={`${data.progressPercentage}%`}
+        />
+      )}
     </DashboardCardBody>
   </DashboardCard>
 );
@@ -31,11 +40,11 @@ DataResiliency.defaultProps = {
 DataResiliency.propTypes = {
   data: PropTypes.object.isRequired,
   loaded: PropTypes.bool,
-  progressPercentage: PropTypes.number
+  progressPercentage: PropTypes.number,
 };
 
-export const DataResiliencyConnected = () => (
-  <ClusterOverviewContext.Consumer>{props => <DataResiliency {...props} />}</ClusterOverviewContext.Consumer>
+const DataResiliencyConnected = () => (
+  <ClusterOverviewContextGenericConsumer Component={DataResiliency} dataPath="dataResiliencyData" />
 );
 
-
+export default DataResiliencyConnected;

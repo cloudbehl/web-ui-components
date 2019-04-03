@@ -1,31 +1,32 @@
-.kubevirt-health__body {
+.storage-health__body {
   max-height: 130px;
+  align-items: center;
 }
 
-.kubevirt-health__icon--error {
+.storage-health__icon--error {
   font-size: 1.333em;
   color: red;
   line-height: 1.333em;
 }
 
-.kubevirt-health__icon--ok {
+.storage-health__icon--ok {
   font-size: 1.333em;
   color: yellowgreen;
   line-height: 1.333em;
 }
 
-.kubevirt-health__icon--warning {
+.storage-health__icon--warning {
   font-size: 1.333em;
   color: goldenrod;
   line-height: 1.333em;
 }
 
-.kubevirt-ocshealth__row-status-item-text {
+.storage-ocshealth__row-status-item-text {
   margin-left: 1em;
   font-size: 1.333em;
 }
 
-.kubevirt-ocshealth__row-status-item {
+.storage-ocshealth__row-status-item {
   display: flex;
   margin-right: 0.5em;
   flex-shrink: 0;
