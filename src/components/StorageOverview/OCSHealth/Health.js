@@ -8,7 +8,7 @@ import {
   DashboardCardTitle,
 } from '../../Dashboard/DashboardCard';
 import HealthBody from './HealthBody';
-import TaskBody from './TaskBody';
+// import TaskBody from './TaskBody';
 import { ClusterOverviewContextGenericConsumer } from '../../ClusterOverview/ClusterOverviewContext';
 import { InlineLoading } from '../../Loading';
 
@@ -18,23 +18,12 @@ export const OCSHealth = ({ data, loaded }) => (
       <DashboardCardTitle>Health</DashboardCardTitle>
     </DashboardCardHeader>
     <DashboardCardBody
-      className="kubevirt-ocshealth__row-status-item "
+      className="kubevirt-ocshealth__row-status-item"
       isLoading={!loaded}
       LoadingComponent={InlineLoading}
     >
       <HealthBody data={data} />
     </DashboardCardBody>
-    <hr />
-    {/* <DashboardCardHeader>
-      <DashboardCardTitle>Tasks</DashboardCardTitle>
-    </DashboardCardHeader>
-    <DashboardCardBody
-      className="kubevirt-kubevirt-inventory__row-status-item"
-      isLoading={!loaded}
-      LoadingComponent={InlineLoading}
-    >
-      <TaskBody data={data} />
-    </DashboardCardBody> */}
   </DashboardCard>
 );
 
