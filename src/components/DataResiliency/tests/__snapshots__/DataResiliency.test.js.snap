@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<DataResiliency /> renders correctly 1`] = `
+<div
+  class="card-pf kubevirt-dashboard__card"
+>
+  <div
+    class="card-pf-heading kubevirt-dashboard__card-heading"
+  >
+    <h2
+      class="card-pf-title"
+    >
+      Data Resiliency
+    </h2>
+  </div>
+  <div
+    class="card-pf-body"
+  >
+    <div
+      class="utilization-bar-pf"
+    >
+      <div>
+        <span
+          class="progress-label-top-right pull-right display-inline-block"
+        >
+          80%
+        </span>
+        <div
+          class="progress-description label-text"
+        >
+          Rebuilding in Progress
+        </div>
+      </div>
+      <div
+        class="progress"
+      >
+        <div
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="80"
+          class="progress-bar"
+          role="progressbar"
+          style="width:80%"
+        />
+        <div
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="20"
+          class="progress-bar progress-bar-remaining"
+          role="progressbar"
+          style="width:20%"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

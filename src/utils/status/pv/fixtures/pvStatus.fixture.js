@@ -1,4 +1,4 @@
-import { PV_STATUS_AVAILABLE, PV_STATUS_BOUND, PV_STATUS_FAILED, PV_STATUS_DEFAULT } from './constants';
+import { PV_STATUS_AVAILABLE, PV_STATUS_BOUND, PV_STATUS_FAILED, PV_STATUS_DEFAULT } from '../constants';
 
 const metadata = {
   name: 'my-pv',

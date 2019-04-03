@@ -10,7 +10,7 @@ exports[`<Inventory /> renders correctly 1`] = `
     <h2
       class="card-pf-title"
     >
-      Cluster inventory
+      Inventory
     </h2>
     <button
       class="btn btn-link"
@@ -54,33 +54,6 @@ exports[`<Inventory /> renders correctly 1`] = `
     </div>
     <div
       class="kubevirt-inventory__row"
-      id="inventory-pvcs"
-    >
-      <div
-        class="kubevirt-inventory__row-title"
-      >
-        5 PVCs
-      </div>
-      <div
-        class="kubevirt-inventory__row-status"
-      >
-        <div
-          class="kubevirt-inventory__row-status-item"
-        >
-          <span
-            aria-hidden="true"
-            class="fa fa-check-circle fa-2x kubevirt-inventory__row-status-item-icon--ok"
-          />
-          <span
-            class="kubevirt-inventory__row-status-item-text"
-          >
-            5
-          </span>
-        </div>
-      </div>
-    </div>
-    <div
-      class="kubevirt-inventory__row"
       id="inventory-pods"
     >
       <div
@@ -102,6 +75,48 @@ exports[`<Inventory /> renders correctly 1`] = `
             class="kubevirt-inventory__row-status-item-text"
           >
             1
+          </span>
+        </div>
+      </div>
+    </div>
+    <div
+      class="kubevirt-inventory__row"
+      id="inventory-pvs"
+    >
+      <div
+        class="kubevirt-inventory__row-title"
+      >
+        PVs
+      </div>
+      <div>
+        <div
+          class="spinner spinner-md blank-slate-pf-icon"
+        />
+      </div>
+    </div>
+    <div
+      class="kubevirt-inventory__row"
+      id="inventory-pvcs"
+    >
+      <div
+        class="kubevirt-inventory__row-title"
+      >
+        5 PVCs
+      </div>
+      <div
+        class="kubevirt-inventory__row-status"
+      >
+        <div
+          class="kubevirt-inventory__row-status-item"
+        >
+          <span
+            aria-hidden="true"
+            class="fa fa-check-circle fa-2x kubevirt-inventory__row-status-item-icon--ok"
+          />
+          <span
+            class="kubevirt-inventory__row-status-item-text"
+          >
+            5
           </span>
         </div>
       </div>

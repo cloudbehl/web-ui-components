@@ -1,4 +1,4 @@
-import { Details } from '../Details';
+import { StorageDetails } from '../Details';
 
 export const clusterDetailsData = {
   openshiftClusterVersions: [
@@ -18,11 +18,11 @@ export const clusterDetailsData = {
 
 export default [
   {
-    component: Details,
+    component: StorageDetails,
     props: clusterDetailsData,
   },
   {
-    component: Details,
+    component: StorageDetails,
     name: 'Loading cluster details',
   },
 ];
