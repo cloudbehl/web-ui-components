@@ -3,7 +3,7 @@ import { shallow, render } from 'enzyme';
 
 import { StorageOverview } from '..';
 
-import { ClusterOverviewContext } from '../../ClusterOverview/ClusterOverviewContext';
+import { StorageOverviewContext } from '../StorageOverviewContext';
 
 import { default as StorageOverviewFixtures } from '../fixtures/StorageOverview.fixture';
 
@@ -17,9 +17,9 @@ describe('<StorageOverview />', () => {
 
   it('renders correctly with Provider', () => {
     const component = render(
-      <ClusterOverviewContext.Provider value={providerValue}>
+      <StorageOverviewContext.Provider value={providerValue}>
         <StorageOverview />
-      </ClusterOverviewContext.Provider>
+      </StorageOverviewContext.Provider>
     );
     expect(component).toMatchSnapshot();
   });

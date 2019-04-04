@@ -8,7 +8,7 @@ import {
   DashboardCardTitle,
   DashboardCardTitleHelp,
 } from '../../Dashboard/DashboardCard';
-import { ClusterOverviewContext } from '../../ClusterOverview/ClusterOverviewContext';
+import { StorageOverviewContext } from '../StorageOverviewContext';
 import { mapNodesToProps, mapPodsToProps, mapPvcsToProps, mapPvsToProps, mapVmsToProps } from './utils';
 import { InventoryRow } from '../../Dashboard/Inventory/InventoryRow';
 
@@ -63,5 +63,5 @@ Inventory.propTypes = {
 };
 
 export const InventoryConnected = () => (
-  <ClusterOverviewContext.Consumer>{props => <Inventory {...props} />}</ClusterOverviewContext.Consumer>
+  <StorageOverviewContext.Consumer>{props => <Inventory {...props} />}</StorageOverviewContext.Consumer>
 );
