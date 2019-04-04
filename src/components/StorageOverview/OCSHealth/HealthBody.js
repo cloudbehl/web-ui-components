@@ -27,11 +27,11 @@ const OCSHealthMap = {
   },
   '1': {
     icon: warningIcon,
-    message: 'OCS is in Warning',
+    message: 'OCS is Degraded',
   },
   '2': {
     icon: errorIcon,
-    message: 'OCS is in Error',
+    message: ' OCS is in Error State',
   },
 };
 
