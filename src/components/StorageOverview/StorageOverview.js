@@ -21,10 +21,10 @@ const MainCards = () => (
         <OCSHealthConnected />
       </GridItem>
       <GridItem span={6}>
-        <DataResiliencyConnected />
+        <CapacityConnected />
       </GridItem>
       <GridItem span={6}>
-        <CapacityConnected />
+        <DataResiliencyConnected />
       </GridItem>
       <GridItem span={12}>
         <TopConsumersConnected />
