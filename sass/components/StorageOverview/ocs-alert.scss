@@ -1,0 +1,29 @@
+.kubevirt-ocs-alert__body {
+  max-height: 130px;
+  overflow: auto;
+  display: flex;
+}
+.kubevirt-ocs-alert__row-status-item-text {
+  margin-left: 2em;
+  font-size: 0.8em;
+}
+
+.kubevirt-ocs-alert__row-status-item {
+  display: flex;
+  margin: 5px 0 5px 0;
+}
+
+.ocs-alert__icon--error {
+  font-size: 1em;
+  color: red;
+  line-height: 1.333em;
+}
+.ocs-alert__icon--warning {
+  font-size: 1em;
+  color: goldenrod;
+  line-height: 1.333em;
+}
+
+.kubevirt-ocs-alert__row-state{
+  margin-left: 2em;
+}
