@@ -9,6 +9,7 @@ import { MEDIA_QUERY_EXCLUSIVE_DEVIATION, MEDIA_QUERY_LG } from '../../utils';
 import { StorageDetailsConnected } from './Details/Details';
 import { InventoryConnected } from './Inventory/Inventory';
 import OCSHealthConnected from './OCSHealth/Health';
+import EventsConnected from './Events/Events';
 
 const MainCards = () => (
   <GridItem lg={6} md={12} sm={12}>
@@ -33,6 +34,16 @@ const LeftCards = () => (
   </GridItem>
 );
 
+const RightCards = () => (
+  <GridItem key="right" lg={3} md={12} sm={12}>
+    <Grid>
+      <GridItem lg={12} md={6} sm={12}>
+        <EventsConnected />
+      </GridItem>
+    </Grid>
+  </GridItem>
+);
+
 export const StorageOverview = () => (
   <Dashboard>
     <DashboardHeader>Storage Overview</DashboardHeader>
@@ -45,6 +56,7 @@ export const StorageOverview = () => (
         <MediaQuery key="main-large" minWidth={MEDIA_QUERY_LG}>
           <MainCards />
         </MediaQuery>
+        <RightCards />
       </Grid>
     </DashboardBody>
   </Dashboard>

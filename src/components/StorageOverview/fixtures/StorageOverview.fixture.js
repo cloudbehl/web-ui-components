@@ -3,6 +3,7 @@ import React from 'react';
 import { StorageOverview as StorageOverviewComponent } from '../StorageOverview';
 import { cephCluster } from '../Details/fixtures/Details.fixture';
 import { ocsHealthData } from '../OCSHealth/fixtures/Health.fixture';
+import { eventsData } from '../Events/fixtures/Events.fixture';
 
 import { StorageOverviewContext } from '../StorageOverviewContext';
 
@@ -41,6 +42,7 @@ export default [
       vms,
       vmis,
       migrations,
+      eventsData,
     },
   },
 ];
