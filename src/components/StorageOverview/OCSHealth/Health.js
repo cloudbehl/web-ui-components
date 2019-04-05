@@ -9,6 +9,7 @@ import {
 } from '../../Dashboard/DashboardCard';
 import HealthBody from './HealthBody';
 import { StorageOverviewContextGenericConsumer } from '../StorageOverviewContext';
+import Alert from '../Alert/Alert';
 import { InlineLoading } from '../../Loading';
 
 export const OCSHealth = ({ data, loaded }) => (
@@ -19,6 +20,9 @@ export const OCSHealth = ({ data, loaded }) => (
     <DashboardCardBody className="kubevirt-ocs-health__body" isLoading={!loaded} LoadingComponent={InlineLoading}>
       <HealthBody data={data} />
     </DashboardCardBody>
+    <hr />
+    {data.healthy !== "0" ? <Alert /> : null}
+
   </DashboardCard>
 );
 

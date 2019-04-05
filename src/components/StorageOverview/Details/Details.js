@@ -52,7 +52,7 @@ StorageDetails.defaultProps = {
 };
 
 StorageDetails.propTypes = {
-  cephCluster: PropTypes.array,
+  cephCluster: PropTypes.object,
   LoadingComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
 };
 
