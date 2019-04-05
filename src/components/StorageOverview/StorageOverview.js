@@ -12,6 +12,7 @@ import OCSHealthConnected from './OCSHealth/Health';
 import EventsConnected from './Events/Events';
 import { DataResiliencyConnected } from './DataResiliency/DataResiliency';
 import { CapacityConnected } from '../StorageOverview/Capacity/Capacity';
+import TopConsumersConnected from './TopConsumers/TopConsumers';
 
 const MainCards = () => (
   <GridItem lg={6} md={12} sm={12}>
@@ -24,6 +25,9 @@ const MainCards = () => (
       </GridItem>
       <GridItem span={6}>
         <CapacityConnected />
+      </GridItem>
+      <GridItem span={12}>
+        <TopConsumersConnected />
       </GridItem>
     </Grid>
   </GridItem>
