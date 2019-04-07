@@ -10,11 +10,13 @@ import {
 } from '../../Dashboard/DashboardCard';
 import { StorageOverviewContext } from '../StorageOverviewContext';
 import { mapNodesToProps, mapPvcsToProps, mapPvsToProps } from '../../Dashboard/Inventory/utils';
+import mapDiskToProps from './DiskInventoryUtils';
 import { InventoryRow } from '../../Dashboard/Inventory/InventoryRow';
 
-const InventoryBody = ({ nodes, pvs, pvcs }) => (
+const InventoryBody = ({ nodes, pvs, pvcs, disks }) => (
   <React.Fragment>
     <InventoryRow title="Nodes" {...mapNodesToProps(nodes)} />
+    <InventoryRow title="Disks" {...mapDiskToProps(disks)} />
     <InventoryRow title="PVs" {...mapPvsToProps(pvs)} />
     <InventoryRow title="PVCs" {...mapPvcsToProps(pvcs)} />
   </React.Fragment>
@@ -22,12 +24,14 @@ const InventoryBody = ({ nodes, pvs, pvcs }) => (
 
 InventoryBody.defaultProps = {
   nodes: undefined,
+  disks: undefined,
   pvs: undefined,
   pvcs: undefined,
 };
 
 InventoryBody.propTypes = {
   nodes: PropTypes.array,
+  disks: PropTypes.object,
   pvs: PropTypes.array,
   pvcs: PropTypes.array,
 };
