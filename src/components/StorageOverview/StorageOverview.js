@@ -12,6 +12,7 @@ import OCSHealthConnected from './OCSHealth/Health';
 import { CapacityConnected } from './Capacity/Capacity';
 import { UtilizationConnected } from './Utilization/Utilization';
 import { AlertsConnected } from './Alerts/Alerts';
+import EventsConnected from './Events/Events';
 
 const MainCards = () => (
   <GridItem lg={6} md={12} sm={12}>
@@ -49,6 +50,9 @@ const RightCards = () => (
     <Grid>
       <GridItem lg={12} md={6} sm={12}>
         <UtilizationConnected />
+      </GridItem>
+      <GridItem lg={12} md={6} sm={12}>
+        <EventsConnected />
       </GridItem>
     </Grid>
   </GridItem>
