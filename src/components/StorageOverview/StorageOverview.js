@@ -14,6 +14,7 @@ import { UtilizationConnected } from './Utilization/Utilization';
 import { AlertsConnected } from './Alerts/Alerts';
 import EventsConnected from './Events/Events';
 import { DataResiliencyConnected } from './DataResiliency/DataResiliency';
+import TopConsumersConnected from './TopConsumers/TopConsumers';
 
 const MainCards = () => (
   <GridItem lg={6} md={12} sm={12}>
@@ -31,6 +32,9 @@ const MainCards = () => (
       </GridItem>
       <GridItem span={6}>
         <DataResiliencyConnected />
+      </GridItem>
+      <GridItem span={12}>
+        <TopConsumersConnected />
       </GridItem>
     </Grid>
   </GridItem>

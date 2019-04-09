@@ -1,6 +1,6 @@
 import { get } from 'lodash';
 
-import { parseNumber } from '../../utils';
+import { parseNumber, formatBytes } from '../../utils';
 
 export const getConsumers = (results, nameLabel, formatLabel) => {
   const result = get(results, 'data.result');
@@ -32,4 +32,27 @@ export const getLastUtilizationStat = response => {
 export const getDataResiliencyData = response => {
   const value = get(response, 'data.result[0].value[1]');
   return parseNumber(value);
+};
+
+const formatTime = time => {
+  const d = new Date(time * 1000);
+  const t = `${d.getHours()}${d.getMinutes()}`;
+  return parseNumber(t);
+};
+
+export const getTopConsumerVectorStats = result => {
+  const unit = { ...formatBytes(result[0].values[0][1]) };
+
+  const yAxisData = result.map(r => [
+    r.metric.namespace,
+    ...r.values.map(array => formatBytes(array[1], unit.unit, 2).value),
+  ]);
+
+  const xAxisDataRaw = [...result[0].values.map(array => formatTime(array[0]))];
+
+  const xAxisData = xAxisDataRaw.filter((v, i) => i % 18 === 0);
+
+  xAxisData.unshift('x');
+
+  return [xAxisData, ...yAxisData];
 };
