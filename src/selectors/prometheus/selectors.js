@@ -28,3 +28,8 @@ export const getLastUtilizationStat = response => {
   const history = getUtilizationVectorStats(response);
   return history ? history[history.length - 1] : null;
 };
+
+export const getDataResiliencyData = response => {
+  const value = get(response, 'data.result[0].value[1]');
+  return parseNumber(value);
+};
