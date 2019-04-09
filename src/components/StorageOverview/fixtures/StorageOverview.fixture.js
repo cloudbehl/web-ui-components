@@ -5,6 +5,11 @@ import { cephCluster } from '../Details/fixtures/Details.fixture';
 import { ocsHealthData } from '../OCSHealth/fixtures/Health.fixture';
 import { eventsData } from '../Events/fixtures/Events.fixture';
 import { capacityStats } from '../Capacity/fixtures/Capacity.fixture';
+<<<<<<< HEAD
+=======
+import { utilizationStats } from '../Utilization/fixtures/Utilization.fixture';
+import { default as Alerts } from '../Alerts/fixtures/Alerts.fixture';
+>>>>>>> 6d7726e... Alert card for storage dashboard
 
 import { StorageOverviewContext } from '../StorageOverviewContext';
 
@@ -35,7 +40,12 @@ export default [
       pvcs,
       pvs,
       diskStats,
+<<<<<<< HEAD
       eventsData,
+=======
+      ...utilizationStats,
+      Alerts,
+>>>>>>> 6d7726e... Alert card for storage dashboard
     },
   },
   {
