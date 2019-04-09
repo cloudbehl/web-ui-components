@@ -3,7 +3,10 @@ import React from 'react';
 import { StorageOverview as StorageOverviewComponent } from '../StorageOverview';
 import { cephCluster } from '../Details/fixtures/Details.fixture';
 import { ocsHealthData } from '../OCSHealth/fixtures/Health.fixture';
+import { eventsData } from '../Events/fixtures/Events.fixture';
 import { capacityStats } from '../Capacity/fixtures/Capacity.fixture';
+import { utilizationStats } from '../Utilization/fixtures/Utilization.fixture';
+import { default as Alerts } from '../Alerts/fixtures/Alerts.fixture';
 
 import { StorageOverviewContext } from '../StorageOverviewContext';
 
@@ -34,6 +37,9 @@ export default [
       pvcs,
       pvs,
       diskStats,
+      ...utilizationStats,
+      Alerts,
+      eventsData,
     },
   },
   {

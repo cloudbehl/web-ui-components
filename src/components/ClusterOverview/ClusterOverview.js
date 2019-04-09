@@ -14,15 +14,19 @@ import { InventoryConnected } from './Inventory/Inventory';
 import { CapacityConnected } from './Capacity/Capacity';
 import { UtilizationConnected } from './Utilization/Utilization';
 import { TopConsumersConnected } from './TopConsumers/TopConsumers';
+import { AlertsConnected } from './Alerts/Alerts';
 
 const MainCards = () => (
   <GridItem lg={6} md={12} sm={12}>
     <Grid>
-      <GridItem span={6}>
-        <HealthConnected />
-      </GridItem>
-      <GridItem span={6}>
-        <ComplianceConnected />
+      <GridItem span={12}>
+        <div className="kubevirt-cluster-overview__health-combined">
+          <div className="kubevirt-cluster-overview__health">
+            <HealthConnected />
+            <ComplianceConnected />
+          </div>
+          <AlertsConnected />
+        </div>
       </GridItem>
       <GridItem span={12}>
         <CapacityConnected />
