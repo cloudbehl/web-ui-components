@@ -11,12 +11,18 @@ import { InventoryConnected } from './Inventory/Inventory';
 import OCSHealthConnected from './OCSHealth/Health';
 import { CapacityConnected } from './Capacity/Capacity';
 import { UtilizationConnected } from './Utilization/Utilization';
+import { AlertsConnected } from './Alerts/Alerts';
 
 const MainCards = () => (
   <GridItem lg={6} md={12} sm={12}>
     <Grid>
       <GridItem span={12}>
-        <OCSHealthConnected />
+        <div className="kubevirt-cluster-overview__health-combined">
+          <div className="kubevirt-cluster-overview__health">
+            <OCSHealthConnected />
+          </div>
+          <AlertsConnected />
+        </div>
       </GridItem>
       <GridItem span={6}>
         <CapacityConnected />
