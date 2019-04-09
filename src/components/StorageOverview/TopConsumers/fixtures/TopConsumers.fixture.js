@@ -1,5 +1,4 @@
-export { StorageOverview } from './StorageOverview';
-export { StorageOverviewContext } from './StorageOverviewContext';
+import { TopConsumers } from '../TopConsumers';
 
 export const TopConsumerStats = {
   stats: [
@@ -19,3 +18,14 @@ export const TopConsumerStats = {
   ],
   loaded: true,
 };
+
+export default [
+  {
+    component: TopConsumers,
+    props: { ...TopConsumerStats },
+  },
+  {
+    component: TopConsumers,
+    name: 'Loading top consumers',
+  },
+];
