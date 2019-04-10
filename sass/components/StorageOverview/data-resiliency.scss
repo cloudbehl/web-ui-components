@@ -1,0 +1,36 @@
+.kubevirt-data-resiliency__title {
+  text-align: center;
+  margin-bottom: 6em;
+}
+
+.kubevirt-data-resiliency__dashboard-body {
+  height: 13.75em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.kubevirt-data-resiliency__utilization-bar {
+  text-align: left;
+}
+
+.kubevirt-data-resiliency__icon-ok {
+  font-size: 2em;
+  color: yellowgreen;
+  line-height: 2em;
+}
+
+.kubevirt-data-resiliency__icon-error {
+  font-size: 2em;
+  color: red;
+  line-height: 2em;
+}
+
+.kubevirt-data-resiliency__status-title-ok {
+  margin-bottom: 6em;
+}
+
+.kubevirt-data-resiliency__status-title-error {
+  margin-top: 1.5625em;
+}

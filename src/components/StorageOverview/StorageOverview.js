@@ -13,6 +13,7 @@ import { CapacityConnected } from './Capacity/Capacity';
 import EventsConnected from './Events/Events';
 import { UtilizationConnected } from './Utilization/Utilization';
 import { AlertsConnected } from './Alerts/Alerts';
+import { DataResiliencyConnected } from './DataResiliency/DataResiliency';
 
 const MainCards = () => (
   <GridItem lg={6} md={12} sm={12}>
@@ -29,6 +30,9 @@ const MainCards = () => (
       </GridItem>
       <GridItem span={6}>
         <CapacityConnected />
+      </GridItem>
+      <GridItem span={6}>
+        <DataResiliencyConnected />
       </GridItem>
     </Grid>
   </GridItem>
