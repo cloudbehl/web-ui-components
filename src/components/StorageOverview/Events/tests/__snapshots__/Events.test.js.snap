@@ -22,9 +22,7 @@ exports[`<Events /> renders correctly 1`] = `
     id="events-body"
     isLoading={false}
   >
-    <EventsBody>
-      <Component />
-    </EventsBody>
+    <EventsBody />
   </DashboardCardBody>
 </DashboardCard>
 `;

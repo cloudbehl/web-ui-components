@@ -20,7 +20,7 @@ exports[`<StorageDetails /> renders Loading storage details correctly 1`] = `
     <DetailsBody>
       <DetailItem
         LoadingComponent={[Function]}
-        isLoading={true}
+        isLoading={false}
         key="name"
         title="Name"
         value={null}

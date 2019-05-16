@@ -10,28 +10,41 @@ import {
   DashboardCardTitleHelp,
 } from '../../Dashboard/DashboardCard';
 import EventsBody from '../../Dashboard/Events/EventsBody';
-import { StorageOverviewContext } from '../StorageOverviewContext';
+import { StorageOverviewContextGenericConsumer } from '../StorageOverviewContext';
 
-export const Events = ({ EventStreamComponent }) => (
-  <DashboardCard>
-    <DashboardCardHeader className="kubevirt-events__card-header">
-      <DashboardCardTitle>Events</DashboardCardTitle>
-      <DashboardCardTitleHelp>help for events</DashboardCardTitleHelp>
-    </DashboardCardHeader>
-    <DashboardCardBody id="events-body" className="kubevirt-events__card-body">
-      <EventsBody>
-        <EventStreamComponent />
-      </EventsBody>
-    </DashboardCardBody>
-  </DashboardCard>
-);
+export class Events extends React.PureComponent {
+  render() {
+    const { Component } = this.props;
+    return (
+      <DashboardCard>
+        <DashboardCardHeader className="kubevirt-events__card-header">
+          <DashboardCardTitle>Events</DashboardCardTitle>
+          <DashboardCardTitleHelp>help for events</DashboardCardTitleHelp>
+        </DashboardCardHeader>
+        <DashboardCardBody id="events-body" className="kubevirt-events__card-body">
+          <EventsBody>
+            <Component />
+          </EventsBody>
+        </DashboardCardBody>
+      </DashboardCard>
+    );
+  }
+}
 
-Events.propTypes = {
-  EventStreamComponent: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
+Events.defaultProps = {
+  Component: React.Fragment,
 };
 
-const EventsConnected = () => (
-  <StorageOverviewContext.Consumer>{props => <Events {...props} />}</StorageOverviewContext.Consumer>
-);
+Events.propTypes = {
+  Component: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+};
 
-export default EventsConnected;
+export const EventsConnected = () => <StorageOverviewContextGenericConsumer Component={Events} dataPath="eventsData" />;
+
+EventsConnected.propTypes = {
+  ...Events.propTypes,
+};
+
+EventsConnected.defaultProps = {
+  ...Events.defaultProps,
+};

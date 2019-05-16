@@ -1,1 +1,1 @@
-export * from './StorageOverviewContext';
+export { StorageOverviewContext, StorageOverviewContextGenericConsumer } from './StorageOverviewContext';

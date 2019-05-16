@@ -41,94 +41,97 @@ const getUtilizationData = data => {
   };
 };
 
-export const Utilization = ({
-  iopsUtilization,
-  latencyUtilization,
-  throughputUtilization,
-  recoveryRateUtilization,
-  LoadingComponent,
-}) => {
-  const throughputData = getUtilizationData(throughputUtilization);
-  const recoveryRateData = getUtilizationData(recoveryRateUtilization);
+export class Utilization extends React.PureComponent {
+  render() {
+    const {
+      iopsUtilization,
+      latencyUtilization,
+      throughputUtilization,
+      recoveryRateUtilization,
+      LoadingComponent,
+    } = this.props;
+    const throughputData = getUtilizationData(throughputUtilization);
+    const recoveryRateData = getUtilizationData(recoveryRateUtilization);
 
-  const iopsStats = getUtilizationVectorStats(iopsUtilization);
-  let iopsStatsMax = 0;
-  if (iopsStats) {
-    iopsStatsMax = Math.ceil(Math.max(0, ...iopsStats));
-  }
-  const latencyStats = getUtilizationVectorStats(latencyUtilization);
-  let latencyStatsMax = 0;
-  if (latencyStats) {
-    latencyStatsMax = Math.max(0, ...latencyStats);
-  }
-  const { timestamps } = throughputData;
+    const iopsStats = getUtilizationVectorStats(iopsUtilization);
+    let iopsStatsMax = 0;
+    if (iopsStats) {
+      iopsStatsMax = Math.ceil(Math.max(0, ...iopsStats));
+    }
+    const latencyStats = getUtilizationVectorStats(latencyUtilization);
+    let latencyStatsMax = 0;
+    if (latencyStats) {
+      latencyStatsMax = Math.max(0, ...latencyStats);
+    }
+    const { timestamps } = throughputData;
 
-  return (
-    <DashboardCard>
-      <DashboardCardHeader>
-        <DashboardCardTitle>Utilization</DashboardCardTitle>
-      </DashboardCardHeader>
-      <DashboardCardBody>
-        <Row>
-          <Col className="kubevirt-utilization__time-duration kubevirt-utilization__time-duration--left">Time </Col>
-          <Col className="kubevirt-utilization__time-duration kubevirt-utilization__time-duration--right">
-            6 hour average
-          </Col>
-        </Row>
-        <ChartAxis
-          scale={{ x: 'time' }}
-          tickValues={timestamps}
-          tickFormat={x => formatToShortTime(x)}
-          orientation="top"
-          height={30}
-          padding={{ top: 25, bottom: 0, left: 43, right: 20 }}
-        />
-        <UtilizationBody>
-          <UtilizationItem
-            unit={throughputData.unit}
-            id="throughput"
-            title="Throughput"
-            data={throughputData.values}
-            maxY={throughputData.maxValue}
-            decimalPoints={1}
-            LoadingComponent={LoadingComponent}
-            isLoading={!throughputUtilization}
+    return (
+      <DashboardCard>
+        <DashboardCardHeader>
+          <DashboardCardTitle>Utilization</DashboardCardTitle>
+        </DashboardCardHeader>
+        <DashboardCardBody>
+          <Row>
+            <Col className="kubevirt-utilization__time-duration kubevirt-utilization__time-duration--left">Time </Col>
+            <Col className="kubevirt-utilization__time-duration kubevirt-utilization__time-duration--right">
+              6 hour average
+            </Col>
+          </Row>
+          <ChartAxis
+            scale={{ x: 'time' }}
+            tickValues={timestamps}
+            tickFormat={x => formatToShortTime(x)}
+            orientation="top"
+            height={30}
+            padding={{ top: 25, bottom: 0, left: 43, right: 20 }}
           />
-          <UtilizationItem
-            unit="IOPS"
-            id="iops"
-            title="IOPS"
-            data={iopsStats}
-            maxY={iopsStatsMax}
-            decimalPoints={0}
-            LoadingComponent={LoadingComponent}
-            isLoading={!iopsUtilization}
-          />
-          <UtilizationItem
-            unit="ms"
-            id="latency"
-            title="Latency"
-            data={latencyStats}
-            maxY={latencyStatsMax}
-            decimalPoints={1}
-            LoadingComponent={LoadingComponent}
-            isLoading={!latencyUtilization}
-          />
-          <UtilizationItem
-            unit={recoveryRateData.unit}
-            id="recoveryRate"
-            title="Recovery rate"
-            data={recoveryRateData.values}
-            maxY={recoveryRateData.maxValue}
-            decimalPoints={1}
-            LoadingComponent={LoadingComponent}
-            isLoading={!recoveryRateUtilization}
-          />
-        </UtilizationBody>
-      </DashboardCardBody>
-    </DashboardCard>
-  );
-};
+          <UtilizationBody>
+            <UtilizationItem
+              unit={throughputData.unit}
+              id="throughput"
+              title="Throughput"
+              data={throughputData.values}
+              maxY={throughputData.maxValue}
+              decimalPoints={1}
+              LoadingComponent={LoadingComponent}
+              isLoading={!throughputUtilization}
+            />
+            <UtilizationItem
+              unit="IOPS"
+              id="iops"
+              title="IOPS"
+              data={iopsStats}
+              maxY={iopsStatsMax}
+              decimalPoints={0}
+              LoadingComponent={LoadingComponent}
+              isLoading={!iopsUtilization}
+            />
+            <UtilizationItem
+              unit="ms"
+              id="latency"
+              title="Latency"
+              data={latencyStats}
+              maxY={latencyStatsMax}
+              decimalPoints={1}
+              LoadingComponent={LoadingComponent}
+              isLoading={!latencyUtilization}
+            />
+            <UtilizationItem
+              unit={recoveryRateData.unit}
+              id="recoveryRate"
+              title="Recovery rate"
+              data={recoveryRateData.values}
+              maxY={recoveryRateData.maxValue}
+              decimalPoints={1}
+              LoadingComponent={LoadingComponent}
+              isLoading={!recoveryRateUtilization}
+            />
+          </UtilizationBody>
+        </DashboardCardBody>
+      </DashboardCard>
+    );
+  }
+}
 
 Utilization.defaultProps = {
   iopsUtilization: null,
@@ -147,5 +150,23 @@ Utilization.propTypes = {
 };
 
 export const UtilizationConnected = () => (
-  <StorageOverviewContext.Consumer>{props => <Utilization {...props} />}</StorageOverviewContext.Consumer>
+  <StorageOverviewContext.Consumer>
+    {props => (
+      <Utilization
+        iopsUtilization={props.iopsUtilization}
+        latencyUtilization={props.latencyUtilization}
+        throughputUtilization={props.throughputUtilization}
+        recoveryRateUtilization={props.recoveryRateUtilization}
+        LoadingComponent={props.LoadingComponent}
+      />
+    )}
+  </StorageOverviewContext.Consumer>
 );
+
+UtilizationConnected.defaultProps = {
+  ...Utilization.defaultProps,
+};
+
+UtilizationConnected.propTypes = {
+  ...Utilization.propTypes,
+};
